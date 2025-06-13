@@ -1,12 +1,19 @@
 version: "3.8"
+
 services:
   jellyfin:
-    image: jellyfin/jellyfin
+    image: jellyfin/jellyfin:latest
     container_name: jellyfin
-    network_mode: host
+    user: "1000:1000"
+    network_mode: "host"
     volumes:
       - ./config:/config
       - ./cache:/cache
-      - ./media:/media
+      - type: bind
+        source: ${MEDIA_PATH}
+        target: /media
     restart: unless-stopped
-
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://localhost:8096
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
