@@ -1,0 +1,26 @@
+# Ignore Jellyfin config, cache, and media directories
+config/
+cache/
+media/
+
+# Docker artifacts
+*.pid
+*.log
+*.sock
+
+# dotenv files (if you store secrets here)
+.env
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+
+# Backup files
+*~
+*.bak
+*.tmp
