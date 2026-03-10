@@ -12,6 +12,12 @@ services:
       - type: bind
         source: ${MEDIA_PATH}
         target: /media
+      - type: bind
+        source: ${MEDIA_PATH_2}
+        target: /media2
+      - type: bind
+        source: ${MEDIA_PATH_3}
+        target: /media3
     restart: unless-stopped
     environment:
       - JELLYFIN_PublishedServerUrl=http://localhost:8096
